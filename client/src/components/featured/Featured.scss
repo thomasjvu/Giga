@@ -1,0 +1,126 @@
+.featured {
+    height: 600px;
+    display: flex;
+    justify-content: center;
+    background-color: var(--carmine);
+    color: white;
+
+    .container {
+        width: 1400px;
+        display: flex;
+        align-items: center;
+
+        .left {
+            display: flex;
+            flex-flow: column;
+            gap: 30px;
+
+            h1 {
+                font-size: 2.75rem;
+
+                span {
+                    font-weight: bold;
+                    font-style: italic !important;
+                    color: var(--ghostpink);
+                }
+
+                div {
+                    position: relative;
+                }
+
+                .inline {
+                    display: inline-block;
+                    // background: black;
+                    padding: 5px;
+                    margin: 0 5px;
+                    border-radius: 2px;
+                }
+
+                .fadetag {
+                    animation-name: fade;
+                    animation-fill-mode: both;
+                    animation-iteration-count: infinite;
+                    animation-duration: 1.5s;
+                    animation-direction: alternate-reverse;
+                }
+
+                @keyframes fade {
+                    0%,
+                    50% {
+                        opacity: 0;
+                    }
+                    100% {
+                        opacity: 1;
+                    }
+                }
+            }
+
+            .search {
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                background: white;
+                border-radius: 5px;
+
+                .searchInput {
+                    display: flex;
+                    align-items: center;
+                    gap: 10px;
+                    padding: 5px;
+
+                    .icon {
+                        width: 20px;
+                        height: 20px;
+                        margin: 10px;
+                    }
+
+                    input {
+                        border: none;
+                        outline: none;
+                        color: black;
+                        background: transparent;
+                        font-family: "Quinque Five", monospace;
+                    }
+                }
+
+                button {
+                    width: 120px;
+                    height: 50px;
+                    border: none;
+                    background-color: var(--ghostpink);
+                    color: black;
+                    cursor: pointer;
+                    border-radius: 5px;
+                    font-family: "Quinque Five", monospace;
+                }
+            }
+
+            .popular {
+                display: flex;
+                align-items: center;
+                gap: 10px;
+
+                span {
+                    width: max-content;
+                }
+
+                button {
+                    color: white;
+                    background: transparent;
+                    border: 1px solid white;
+                    padding: 5px 10px;
+                    border-radius: 20px;
+                    font-size: 14px;
+                    cursor: pointer;
+                }
+            }
+        }
+        .right {
+            height: 100%;
+            img {
+                height: 100%;
+                object-fit: contain;
+            }
+        }
+    }
+}

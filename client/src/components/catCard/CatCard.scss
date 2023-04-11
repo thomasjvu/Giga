@@ -1,0 +1,35 @@
+.catCard {
+    width: 252px;
+    height: 344px;
+    color: white;
+    cursor: pointer;
+    position: relative;
+
+    img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        border-radius: 5px;
+    }
+
+    .desc {
+        position: absolute;
+        top: 15px;
+        left: 15px;
+
+        font-weight: 300;
+        font-size: 1rem;
+        font-family: "Quinque Five", monospace;
+    }
+
+    .title {
+        font-weight: 500px;
+        font-size: 1.15rem;
+        font-family: "Quinque Five", monospace;
+        color: var(--carmine);
+
+        position: absolute;
+        left: 15px;
+        top: 75px;
+    }
+}

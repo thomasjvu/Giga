@@ -1,0 +1,97 @@
+.home {
+    .features {
+        background: #212121;
+        display: flex;
+        justify-content: center;
+        padding: 100px 0px;
+        color: black;
+        gap: 50px;
+
+        &.dark {
+            background: var(--carmine);
+        }
+
+        .container {
+            width: 1400px;
+            display: flex;
+            align-items: center;
+            gap: 100px;
+
+            .left {
+                display: flex;
+                flex-flow: column;
+                gap: 15px;
+                flex: 2;
+
+                h2 {
+                    color: white;
+                    font-family: "Montserrat", sans-serif;
+                    font-weight: bold;
+                    margin-bottom: 10px;
+                    font-size: 3rem;
+                }
+                p {
+                    font-size: 18px;
+                    font-weight: 300;
+                    color: #e5e4e2;
+                }
+
+                &.heading{
+                    color: white;
+                }
+
+                h3 {
+                    color: white !important;
+                }
+
+                .titles {
+                    display: flex;
+                    flex-flow: column;
+                    gap: 15px;
+
+                    .title {
+                        display: flex;
+                        align-items: center;
+                        gap: 10px;
+                        font-weight: bold;
+                        font-size: 1rem;
+                        color: white;
+                        font-family: "Quinque Five", monospace;
+
+                        .checkMark {
+                            font-size: 0.75rem;
+                            background: white;
+                            border-radius: 5px;
+                            padding: 5px;
+                            color: black;
+                        }
+                    }
+                }
+
+                button {
+                    background-color: transparent;
+                    color: white;
+                    padding: 10px 20px;
+                    border-radius: 5px;
+                    border: 1px solid white;
+                    font-size: 16px;
+                    margin: 20px 0;
+                }
+            }
+
+            .right {
+                flex: 1;
+            }
+
+            .features-image {
+                border-radius: 5px;
+            }
+        }
+    }
+}
+
+// .projectSlides {
+//     display: flex;
+//     flex-flow: column;
+//     gap: 10px;
+// }
