@@ -1,11 +1,14 @@
 import React, { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import "./Navbar.scss";
 import { Link, useLocation } from "react-router-dom";
+import newRequest from "../../utils/newRequest";
 
 const Navbar = () => {
     const [active, setActive] = useState(false);
     const [open, setOpen] = useState(false);
 
+    const navigate = useNavigate();
     const { pathname } = useLocation();
 
     const isActive = () => {
@@ -20,10 +23,16 @@ const Navbar = () => {
         };
     }, []);
 
-    const currentUser = {
-        id: 1,
-        username: "Thomas",
-        isSeller: true,
+    const currentUser = JSON.parse(localStorage.getItem("currentUser"));
+
+    const handleLogout = async () => {
+        try {
+            await newRequest.post("/auth/logout");
+            localStorage.setItem("currentUser", null);
+            navigate("/");
+        } catch (err) {
+            console.log(err);
+        }
     };
 
     return (
@@ -36,18 +45,20 @@ const Navbar = () => {
                     </Link>
                 </div>
                 <div className="links">
-                    <Link to="/" className="link">
+                    <Link to="/business" className="link">
                         Giga Business
                     </Link>
-                    <Link to="/explore" className="link">
+                    <Link to="/gigs" className="link">
                         Explore
                     </Link>
-                    <Link to="/english" className="link">
-                        English
-                    </Link>
-                    <Link to="/sign-in" className="link">
-                        Signin
-                    </Link>
+                    {/* <Link to="/english" className="link"> */}
+                    {/*     English */}
+                    {/* </Link> */}
+                    {!currentUser && (
+                        <Link to="/login" className="link">
+                            Login
+                        </Link>
+                    )}
                     {!currentUser?.isSeller && (
                         <Link to="/register" className="link">
                             Become a seller
@@ -55,8 +66,8 @@ const Navbar = () => {
                     )}
                     {currentUser ? (
                         <div className="user" onClick={() => setOpen(!open)}>
-                            <img src="https://i1.sndcdn.com/artworks-000206602497-b0gg50-t500x500.jpg" alt="User Profile Picture" />
-                            <span>{currentUser?.username}</span>
+                            <img src={currentUser.img || "/img/Giga-icon_1080.png"} alt="User Profile Picture" />
+                            <span>@ {currentUser?.username}</span>
                             {open && (
                                 <div className="options">
                                     {currentUser.isSeller && (
@@ -75,7 +86,7 @@ const Navbar = () => {
                                     <Link to="/messages" className="link">
                                         Messages
                                     </Link>
-                                    <Link to="/logout" className="link">
+                                    <Link onClick={handleLogout}>
                                         Logout
                                     </Link>
                                 </div>
@@ -83,7 +94,6 @@ const Navbar = () => {
                         </div>
                     ) : (
                         <>
-                            <span>Sign in</span>
                             <Link to="/register" className="link">
                                 <button>Join</button>
                             </Link>

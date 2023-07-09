@@ -49,7 +49,7 @@
             align-items: center;
             justify-content: space-around;
             gap: 24px;
-            font-weight: 500;
+            font-weight: bold;
             font-family: "Monsterrat", sans-serif;
             
             span {
@@ -62,12 +62,14 @@
                 gap: 10px;
                 cursor: pointer;
                 position: relaive;
+                color: var(--ghostpink);
 
                 img {
                     width: 32px;
                     height: 32px;
                     border-radius: 50%;
                     object-fit: cover;
+                    border: 1px solid var(--ghostpink);
                 }
 
                 .options {
@@ -92,9 +94,10 @@
                 color: white;
                 padding: 10px 20px;
                 border-radius: 5px;
-                border: 1px solid white;
+                border: 2px solid white;
                 cursor: pointer;
                 background: rgba(0, 0, 0, 0);
+                font-weight: bold;
 
                 &:hover {
                     background: #ff7500;

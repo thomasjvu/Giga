@@ -3,15 +3,15 @@ const { Schema } = mongoose
 
 const orderModel = new Schema({
     gigId: {
-        type: string,
+        type: String,
         required: true
     },
     title: {
-        type: string,
+        type: String,
         required: true
     },
     img: {
-        type: Number,
+        type: String,
         required: false 
     },
     price: {

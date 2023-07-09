@@ -8,7 +8,7 @@ const Footer = () => {
     return (
         <footer className="footer">
             <div className="container">
-                <div class="top">
+                <div className="top">
                     <div className="item">
                         <h3>Categories</h3>
                         <Link className="link" to="/">Pixel Art</Link>

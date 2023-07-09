@@ -1,22 +1,39 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { Icon } from '@iconify/react';
+import { Icon } from "@iconify/react";
+import { useQuery } from "@tanstack/react-query";
+import newRequest from "../../utils/newRequest";
 import "./GigCard.scss";
 
-const GigCard = ({item}) => {
+const GigCard = ({ item }) => {
+
+    const { isLoading, error, data } = useQuery({
+        queryKey: [item.userId],
+        queryFn: () =>
+            newRequest.get(`/users/${item.userId}`).then((res) => {
+                return res.data;
+            }),
+    });
+
     return (
-        <Link to="/gig/123" className="link">
+        <Link to={`/gigs/${item._id}`} className="link">
             <div className="gigCard">
-                <img src={item.img} alt="Gig Cover Image" />
+                <img src={item.cover} alt="Gig Cover Image" />
                 <div className="info">
-                    <div className="user">
-                        <img src={item.pp} alt="User Profile Picture" />
-                        <span>{item.username}</span>
-                    </div>
+                    {isLoading ? (
+                        "loading..."
+                    ) : error ? (
+                        "something went wrong..."
+                    ) : (
+                        <div className="user">
+                            <img src={data.img || "/img/Giga-icon_1080.png"} alt="Seller Profile Picture" />
+                            <span>{data.username}</span>
+                        </div>
+                    )}
                     <p>{item.desc}</p>
                     <div className="star">
-                        <Icon icon="game-icons:round-star" />
-                        <span>{item.star}</span>
+                        <Icon icon="game-icons:round-star" color="#ffbb33" />
+                        <span>{!isNaN(item.totalStars / item.starNumber) && Math.round(item.totalStars / item.starNumber)} / 5</span>
                     </div>
                 </div>
                 <hr />
