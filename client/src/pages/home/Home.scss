@@ -81,6 +81,11 @@
 
             .right {
                 flex: 1;
+
+                img {
+                    width: 100%;
+                    border-radius: 5px;
+                }
             }
 
             .features-image {
