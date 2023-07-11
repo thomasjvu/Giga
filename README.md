@@ -24,4 +24,6 @@ Giga is a freelancing platform that caters towards the video game and entertainm
 
 ## Roadmap
 - [ ] Additional Gig Features
-
+- [ ] Mobile Responsiveness
+- [ ] Upgrade accessibility features
+- [ ] Internationalize Website
