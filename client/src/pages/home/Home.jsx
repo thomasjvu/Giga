@@ -23,18 +23,17 @@ const Home = () => {
                     <div className="left">
                         <h2>Get your game on!</h2>
                         <div className="titles">
-
-                            <div className="title">
+                            <div className="light-title">
                                 <Icon icon="game-icons:check-mark" className="checkMark"/>
                                 <h3>The best for every budget</h3>
                             </div>
                             <p>Find high quality services at every price point. No hourly rates, just project-based pricing.</p>
-                            <div className="title">
+                            <div className="light-title">
                                 <Icon icon="game-icons:check-mark" className="checkMark"/>
                                 <h3>The best for every budget</h3>
                             </div>
                             <p>Find high quality services at every price point. No hourly rates, just project-based pricing.</p>
-                            <div className="title">
+                            <div className="light-title">
                                 <Icon icon="game-icons:check-mark" className="checkMark"/>
                                 <h3>The best for every budget</h3>
                             </div>
@@ -46,22 +45,22 @@ const Home = () => {
                     </div>
                 </div>
             </div>
-            <div className="features dark">
+            <div id="giga-studios" className="features dark">
                 <div className="container">
                     <div className="left">
-                        <h2 className="heading">Giga Studios</h2>
-                        <h3 className="subheading">The panacea for all of your studio's problems</h3>
-                        <p>Upgrade to a curated experience packed with tools and benefits, dedicated to larger game studios</p>
+                        <h2 className="dark-heading">Giga Studios</h2>
+                        <h3 className="dark-subheading">The panacea for all of your studio's problems</h3>
+                        <p className="dark-text">Upgrade to a curated experience packed with tools and benefits, dedicated to larger game studios.</p>
                         <div className="titles">
-                            <div className="title">
+                            <div className="dark-title">
                                 <Icon icon="game-icons:check-mark" className="checkMark"/>
                                 <h4>Connect with top tier freelancers</h4>
                             </div>
-                            <div className="title">
+                            <div className="dark-title">
                                 <Icon icon="game-icons:check-mark" className="checkMark"/>
                                 <h4>Find potential full-time employees</h4>
                             </div>
-                            <div className="title">
+                            <div className="dark-title">
                                 <Icon icon="game-icons:check-mark" className="checkMark"/>
                                 <h4>Cut costs searching for SSS-tier talent</h4>
                             </div>

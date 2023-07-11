@@ -11,11 +11,17 @@
 }
 
 
-
 :root {
+    /* Custom Colors */
+    --black: #212121;
     --carmine: #9d2933;
     --ghostpink: #fecbcf;
     --ghostwhite: #f8f8ff;
+
+    /* Custom Fonts */
+    --mono: "Quinque Five", monospace;
+    --sans-serif: "Inter", "Avenir", "Helvetica", "Arial", sans-serif;
+    --display: "Montserrat", serif;
 
     font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
     line-height: 1.5;
@@ -28,8 +34,6 @@
     font-synthesis: none;
     text-rendering: optimizeLegibility;
     -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-    -webkit-text-size-adjust: 100%;
 }
 
 /* font styles */
