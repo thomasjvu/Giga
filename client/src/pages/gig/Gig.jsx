@@ -56,14 +56,23 @@ const Gig = () => {
                             "something went wrong..."
                         ) : (
                             <div className="user">
-                                <img className="userImage" src={dataUser.img || "/img/Giga-icon_1080.png"} alt="seller image" />
+                                <img
+                                    className="userImage"
+                                    src={dataUser.img || "/img/Giga-icon_1080.png"}
+                                    alt="seller image"
+                                />
                                 <span>{dataUser.username}</span>
                                 {!isNaN(data.totalStars / data.starNumber) && (
                                     <div className="stars">
                                         {Array(Math.round(data.totalStars / data.starNumber))
                                             .fill()
                                             .map((item, i) => (
-                                                <Icon icon="game-icons:round-star" className="starIcon" key={i} color="#ffbb33" />
+                                                <Icon
+                                                    icon="game-icons:round-star"
+                                                    className="starIcon"
+                                                    key={i}
+                                                    color="#ffbb33"
+                                                />
                                             ))}
                                         <span>{Math.round(data.totalStars / data.starNumber)}</span>
                                     </div>
@@ -85,7 +94,11 @@ const Gig = () => {
                                 "something went wrong..."
                             ) : (
                                 <div className="user">
-                                    <img className="userImage" src={dataUser.img || "/img/Giga-icon_1080.png"} alt="seller image" />
+                                    <img
+                                        className="userImage"
+                                        src={dataUser.img || "/img/Giga-icon_1080.png"}
+                                        alt="seller image"
+                                    />
                                     <div className="userInfo">
                                         <span>{dataUser.username}</span>
                                         {!isNaN(data.totalStars / data.starNumber) && (
@@ -93,7 +106,12 @@ const Gig = () => {
                                                 {Array(Math.round(data.totalStars / data.starNumber))
                                                     .fill()
                                                     .map((item, i) => (
-                                                        <Icon icon="game-icons:round-star" className="starIcon" key={i} color="#ffbb33" />
+                                                        <Icon
+                                                            icon="game-icons:round-star"
+                                                            className="starIcon"
+                                                            key={i}
+                                                            color="#ffbb33"
+                                                        />
                                                     ))}
                                                 <span>{Math.round(data.totalStars / data.starNumber)}</span>
                                             </div>
@@ -155,7 +173,9 @@ const Gig = () => {
                                 </div>
                             ))}
                         </div>
-                        <button>Continue</button>
+                        <Link to={`/pay/${id}`}>
+                            <button>Continue</button>
+                        </Link>
                     </div>
                 </div>
             )}

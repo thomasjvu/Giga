@@ -73,7 +73,7 @@ const Navbar = () => {
                                     {currentUser.isSeller && (
                                         <>
                                             <Link to="/my-gigs" className="link">
-                                                Gigs
+                                                My Gigs
                                             </Link>
                                             <Link to="/add" className="link">
                                                 Add New Gig
@@ -86,7 +86,7 @@ const Navbar = () => {
                                     <Link to="/messages" className="link">
                                         Messages
                                     </Link>
-                                    <Link onClick={handleLogout}>
+                                    <Link className="link" onClick={handleLogout}>
                                         Logout
                                     </Link>
                                 </div>

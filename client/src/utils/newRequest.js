@@ -1,8 +1,8 @@
 import axios from "axios"
 
 const newRequest = axios.create({
-    // baseURL: "http://localhost:1024",
-    baseURL: "https://giga-server.cyclic.app",
+    baseURL: import.meta.env.VITE_SERVER_BASE_URL,
+    // baseURL: "https://giga-server.cyclic.app",
     withCredentials: true,
 })
 

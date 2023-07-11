@@ -2,17 +2,51 @@ import React from "react";
 import { Icon } from "@iconify/react";
 import { Link } from "react-router-dom";
 import "./MyGigs.scss";
+import getCurrentUser from "../../utils/getCurrentUser";
+import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
+import newRequest from "../../utils/newRequest";
 
 const MyGigs = () => {
+    const currentUser = getCurrentUser();
+
+    const queryClient = useQueryClient();
+
+    const { isLoading, error, data } = useQuery({
+        queryKey: ["myGigs"],
+        queryFn: () =>
+            newRequest.get(`/gigs?userId=${currentUser.id}`).then((res) => {
+                return res.data;
+            }),
+    });
+
+    const mutation = useMutation({
+        mutationFn: (id) => {
+            return newRequest.delete(`/gigs/${id}`);
+        },
+        onSuccess: () => {
+            queryClient.invalidateQueries(["myGigs"]);
+        },
+    });
+
+    const handleDelete = (id) => {
+        mutation.mutate(id);
+    };
+
     return (
         <div className="myGigs">
-            <div>
+            {isLoading ? (
+                "loading"
+            ) : error ? (
+                "err"
+            ) : (
                 <div className="container">
                     <div className="title">
                         <h1>My Gigs</h1>
-                        <Link to="/add">
-                            <button>Add New Gig</button>
-                        </Link>
+                        {currentUser.isSeller && (
+                            <Link to="/add">
+                                <button>Add New Gig</button>
+                            </Link>
+                        )}
                     </div>
                     <table>
                         <tr>
@@ -22,24 +56,26 @@ const MyGigs = () => {
                             <th>Sales</th>
                             <th>Action</th>
                         </tr>
-                        <tr>
-                            <td>
-                                <img
-                                    src="https://images.unsplash.com/photo-1638445533129-65aaf55fb94c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80"
-                                    alt=""
-                                    className="img"
-                                />
-                            </td>
-                            <td>Gig</td>
-                            <td>88</td>
-                            <td>123</td>
-                            <td>
-                                <Icon icon="game-icons:trash-can" className="delete" />
-                            </td>
-                        </tr>
+                        {data.map((gig) => (
+                            <tr key={gig._id}>
+                                <td>
+                                    <img src={gig.cover} alt="" className="img" />
+                                </td>
+                                <td>{gig.title}</td>
+                                <td>{gig.price}</td>
+                                <td>{gig.sales}</td>
+                                <td>
+                                    <Icon
+                                        icon="game-icons:trash-can"
+                                        className="delete"
+                                        onClick={() => handleDelete(gig._id)}
+                                    />
+                                </td>
+                            </tr>
+                        ))}
                     </table>
                 </div>
-            </div>
+            )}
         </div>
     );
 };
