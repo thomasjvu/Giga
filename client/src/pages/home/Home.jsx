@@ -70,7 +70,7 @@ const Home = () => {
                     </div>
                     <div className="right">
                         {/* <video src="./img/video/video.mp4" controls></video> */}
-                        <img src="./img/giga-icon_1080.png" alt="Hero image" />
+                        <img src="./img/Giga-icon_1080.png" alt="Hero image" />
                     </div>
                 </div>
             </div>
