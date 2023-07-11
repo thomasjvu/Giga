@@ -42,7 +42,6 @@ const Home = () => {
                         </div>
                     </div>
                     <div className="right">
-                        {/* <video src="./img/video/video.mp4" controls></video> */}
                         <img className="features-image" src="./img/gamer-girl.png" alt="Hero image" />
                     </div>
                 </div>
@@ -60,18 +59,18 @@ const Home = () => {
                             </div>
                             <div className="title">
                                 <Icon icon="game-icons:check-mark" className="checkMark"/>
-                                <h4>Connect with top tier freelancers</h4>
+                                <h4>Find potential full-time employees</h4>
                             </div>
                             <div className="title">
                                 <Icon icon="game-icons:check-mark" className="checkMark"/>
-                                <h4>Connect with top tier freelancers</h4>
+                                <h4>Cut costs searching for SSS-tier talent</h4>
                             </div>
                             <button>Coming Soon</button>
                         </div>
                     </div>
                     <div className="right">
                         {/* <video src="./img/video/video.mp4" controls></video> */}
-                        <img src="./img/happy-girl.png" alt="Hero image" />
+                        <img src="./img/giga-icon_1080.png" alt="Hero image" />
                     </div>
                 </div>
             </div>
